@@ -155,11 +155,6 @@ function main() {
     }
     console.log(`SERVER: gRPC listening on port ${port}`);
   });
-  // server.bindAsync(`0.0.0.0:${GRPC_PORT}`, grpcServerCreds, (err, port) => {
-  //   if (err) throw err;
-  //   server.start();
-  //   console.log(`SERVER: gRPC on :${port}`);
-  // });
 }
 
 main();
