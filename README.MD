@@ -209,6 +209,8 @@ Expected:
 * Client logs file upload completion
 * File is saved under `server/downloads/`
 
+![Screenshot](image.png)
+
 ---
 
 ## SSL/TLS in Production
