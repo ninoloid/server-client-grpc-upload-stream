@@ -1,4 +1,5 @@
 export const GRPC_PORT = process.env.GRPC_PORT || "50051";
+export const GRPC_ADDR = process.env.GRPC_ADDR || "localhost:50051";
 export const CLIENT_SHARED_SECRET =
   process.env.CLIENT_SHARED_SECRET || "dev-client-secret";
 export const DOWNLOAD_DIR = process.env.DOWNLOAD_DIR || "./downloads";

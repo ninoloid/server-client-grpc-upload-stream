@@ -1,8 +1,9 @@
 import * as grpc from "@grpc/grpc-js";
 import * as protoLoader from "@grpc/proto-loader";
 import path from "path";
+import { GRPC_ADDR } from "./config/env.config";
+import { createClientCredentials } from "./common/helpers/grpc-cred.helper";
 
-const addr = process.env.GRPC_ADDR || "localhost:50051";
 const clientId = process.argv[2];
 const filePath = process.argv[3];
 
@@ -22,10 +23,8 @@ const pkgDef = protoLoader.loadSync(
 );
 
 const proto = grpc.loadPackageDefinition(pkgDef) as any;
-const Uploader = new proto.uploader.Uploader(
-  addr,
-  grpc.credentials.createInsecure()
-);
+const grpcClientCreds = createClientCredentials();
+const Uploader = new proto.uploader.Uploader(GRPC_ADDR, grpcClientCreds);
 
 Uploader.Trigger(
   { client_id: clientId, file_path: filePath },
